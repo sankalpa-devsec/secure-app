@@ -1,10 +1,17 @@
 const http = require('http');
 
+// Industry best practice: Passwords/Keys come from environment variables, not hardcoded
+const PORT = process.env.PORT || 3000;
+
 const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello from Secure Docker Container!\n');
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+        status: 'healthy',
+        message: 'DevSecOps Hardened Node.js Service',
+        timestamp: new Date().toISOString()
+    }));
 });
 
-server.listen(3000, () => {
-    console.log('App running on port 3000');
+server.listen(PORT, () => {
+    console.log(`Application running securely on port ${PORT}`);
 });
