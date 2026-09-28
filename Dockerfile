@@ -1,6 +1,5 @@
-# හිතාමතාම පරණ, CRITICAL ලෙඩ තියෙන base image එකක් දාමු
-FROM node:18-alpine
-
+FROM node:22-alpine
+RUN apk update && apk upgrade --no-cache
 WORKDIR /app
 COPY app.js .
 USER node
