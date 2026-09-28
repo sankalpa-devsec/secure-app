@@ -24,21 +24,21 @@ Every commit triggers an automated pipeline enforcing strict security gates:
 
 ## 🚀 Pipeline Workflow
 
+```text
 [Developer Push]
-│
-▼
+       │
+       ▼
 [Gitleaks Secret Scan] ──(Fails if credentials exposed)
-│
-▼
+       │
+       ▼
 [Docker Image Build]
-│
-▼
+       │
+       ▼
 [Trivy Container Scan] ──(Fails on HIGH/CRITICAL CVEs)
-│
-▼
+       │
+       ▼
 [✅ Secure Artifact Ready]
----
-
+```
 ## 🛠️ Local Verification
 
 To run security checks locally prior to pushing:
